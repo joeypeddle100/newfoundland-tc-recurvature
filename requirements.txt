@@ -1,0 +1,10 @@
+numpy
+pandas
+matplotlib
+scipy
+statsmodels
+xarray
+netCDF4
+h5netcdf
+cartopy
+geopy
