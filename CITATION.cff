@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software or its derived event lists, please cite the accompanying study."
+title: "Newfoundland-Relevant Tropical-Cyclone Recurvature Climatology"
+type: software
+authors:
+  - family-names: Peddle
+    given-names: Joey
+version: "2.0.0"
+date-released: 2026-07-25
+repository-code: "https://github.com/joeypeddle100/newfoundland-tc-recurvature"
+url: "https://github.com/joeypeddle100/newfoundland-tc-recurvature"
+abstract: >-
+  Reproducible analysis of North Atlantic tropical cyclones whose
+  post-recurvature tracks pass within a broad regional screening distance of
+  Newfoundland during 1950–2023.
+keywords:
+  - tropical cyclones
+  - recurvature
+  - Newfoundland
+  - climatology
+  - climate variability
+license: MIT
