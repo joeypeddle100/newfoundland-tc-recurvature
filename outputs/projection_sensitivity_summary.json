@@ -1,0 +1,53 @@
+{
+  "baseline_projection": "EPSG:3347",
+  "alternative_projection": "Newfoundland-centred azimuthal equidistant (48.5 N, 56 W; WGS84)",
+  "baseline_relevant_events": 144,
+  "alternative_relevant_events": 148,
+  "classification_changes": 4,
+  "distance_correlation": 0.9997778263547167,
+  "median_absolute_difference_km": 17.52414026367012,
+  "p95_absolute_difference_km": 116.2173533043191,
+  "maximum_absolute_difference_km": 241.21135034766712,
+  "full_count_trend": {
+    "n_years": 74,
+    "total_events": 148,
+    "irr_per_decade": 0.9967472176551645,
+    "ci_low": 0.9243305083389247,
+    "ci_high": 1.0748374168550356,
+    "p_value": 0.9325300816891846,
+    "hac_ci_low": 0.9458029513883893,
+    "hac_ci_high": 1.0504355208924845,
+    "hac_p_value": 0.9031199375784713,
+    "pearson_dispersion": 0.9188931758524228,
+    "lag1_residual_autocorrelation": -0.06301089622024479,
+    "ljung_box_p_value": 0.2810049785300365
+  },
+  "satellite_count_trend": {
+    "n_years": 45,
+    "total_events": 88,
+    "irr_per_decade": 1.1112625013190824,
+    "ci_low": 0.9452662176116704,
+    "ci_high": 1.3064090558087216,
+    "p_value": 0.20122358764705106,
+    "hac_ci_low": 0.9791024264453325,
+    "hac_ci_high": 1.2612616550459483,
+    "hac_p_value": 0.10245224967935104,
+    "pearson_dispersion": 1.1346224328568175,
+    "lag1_residual_autocorrelation": -0.09569439983500982,
+    "ljung_box_p_value": 0.34390175253516586
+  },
+  "mean_distance_trend": {
+    "n": 417,
+    "slope_per_decade": 25.017358369330644,
+    "ci_low": -9.522773210336808,
+    "ci_high": 59.5574899489981,
+    "p_value": 0.15571698349028237
+  },
+  "median_distance_trend": {
+    "n": 417,
+    "median_slope_km_per_decade": 36.98019989068485,
+    "ci_low": -10.403209757945689,
+    "ci_high": 84.36360953931539,
+    "p_value": 0.12685917859895915
+  }
+}

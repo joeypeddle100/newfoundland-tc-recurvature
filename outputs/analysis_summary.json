@@ -1,0 +1,307 @@
+{
+  "configuration": {
+    "detector": {
+      "grid_hours": 6,
+      "window_hours": 24,
+      "latitude_gate_deg_n": 25.0,
+      "pre_east_max_kmh": 0.0,
+      "post_east_min_kmh": 5.0,
+      "post_north_min_kmh": 0.0,
+      "min_eastward_acceleration_kmh": 5.0,
+      "maximum_source_gap_hours": 12.0
+    },
+    "region": {
+      "proximity_threshold_km": 600.0,
+      "projection_epsg": 3347
+    }
+  },
+  "sample": {
+    "north_atlantic_source_storms": 1195,
+    "tropical_origin_storms": 1161,
+    "excluded_without_tropical_code": 34,
+    "eligible_storms": 778,
+    "all_corrected_recurvers": 417,
+    "corrected_relevant_events": 144,
+    "native_cadence_comparator_events": 165,
+    "heading_relevant_events": 131
+  },
+  "frequency": {
+    "full_period": {
+      "n_years": 74,
+      "total_events": 144,
+      "irr_per_decade": 0.9989351172773046,
+      "ci_low": 0.9253970621542915,
+      "ci_high": 1.0783169834220276,
+      "p_value": 0.9782127892889106,
+      "hac_ci_low": 0.9445980335063544,
+      "hac_ci_high": 1.0563978889789944,
+      "hac_p_value": 0.9702161528768181,
+      "pearson_dispersion": 0.9127763118450621,
+      "lag1_residual_autocorrelation": -0.07550619028747797,
+      "ljung_box_p_value": 0.4217530863371568
+    },
+    "satellite_era": {
+      "n_years": 45,
+      "total_events": 86,
+      "irr_per_decade": 1.109362778286254,
+      "ci_low": 0.9419146913372217,
+      "ci_high": 1.3065788071527058,
+      "p_value": 0.21379448364461662,
+      "hac_ci_low": 0.9795820272961017,
+      "hac_ci_high": 1.2563376415183989,
+      "hac_p_value": 0.10204657035706895,
+      "pearson_dispersion": 1.107338169196125,
+      "lag1_residual_autocorrelation": -0.1065414571529066,
+      "ljung_box_p_value": 0.3665215158372274
+    }
+  },
+  "pathway_rates": {
+    "relevant_among_eligible_full": {
+      "n_years": 74,
+      "total_successes": 144,
+      "total_trials": 778,
+      "odds_ratio_per_decade": 0.9753271956820236,
+      "ci_low": 0.8980644765461608,
+      "ci_high": 1.059237018588459,
+      "p_value": 0.55298408854822
+    },
+    "relevant_among_eligible_satellite": {
+      "n_years": 45,
+      "total_successes": 86,
+      "total_trials": 470,
+      "odds_ratio_per_decade": 1.0173870386533406,
+      "ci_low": 0.8530380466665786,
+      "ci_high": 1.2134000241426366,
+      "p_value": 0.8479312298898983
+    },
+    "relevant_among_recurvers_full": {
+      "n_years": 73,
+      "total_successes": 144,
+      "total_trials": 417,
+      "odds_ratio_per_decade": 0.9398993218460197,
+      "ci_low": 0.8576051732269455,
+      "ci_high": 1.0300902592303198,
+      "p_value": 0.18489121826522614
+    },
+    "relevant_among_recurvers_satellite": {
+      "n_years": 44,
+      "total_successes": 86,
+      "total_trials": 263,
+      "odds_ratio_per_decade": 0.9911816759672495,
+      "ci_low": 0.81236450821084,
+      "ci_high": 1.209359966915571,
+      "p_value": 0.9304636098333195
+    }
+  },
+  "location": {
+    "latitude": {
+      "n": 144,
+      "slope_per_decade": -0.051564167829084816,
+      "ci_low": -0.3488984554262298,
+      "ci_high": 0.2457701197680602,
+      "p_value": 0.7339271645937147
+    },
+    "longitude": {
+      "n": 144,
+      "slope_per_decade": 0.31827024247325275,
+      "ci_low": -0.36849886833866763,
+      "ci_high": 1.0050393532851731,
+      "p_value": 0.3637064435377898
+    },
+    "era_energy_test": {
+      "n_first": 58,
+      "n_second": 86,
+      "energy_statistic": 24.64020455869195,
+      "permutation_p_value": 0.5648,
+      "permutations": 4999
+    },
+    "early_n": 58,
+    "late_n": 86,
+    "early_median_lat": 30.550000190734863,
+    "late_median_lat": 30.94999885559082,
+    "early_median_lon": -73.30000305175781,
+    "late_median_lon": -70.8499984741211
+  },
+  "proximity": {
+    "all_recurvers_mean_trend": {
+      "n": 417,
+      "slope_per_decade": 25.917745704241582,
+      "ci_low": -10.068671740993004,
+      "ci_high": 61.90416314947617,
+      "p_value": 0.15806486847630208
+    },
+    "all_recurvers_median_trend": {
+      "n": 417,
+      "median_slope_km_per_decade": 38.08424497643906,
+      "ci_low": -11.009064816823283,
+      "ci_high": 87.1775547697014,
+      "p_value": 0.12915329783751384
+    },
+    "relevant_only_mean_trend": {
+      "n": 144,
+      "slope_per_decade": -7.948288566616107,
+      "ci_low": -22.758185701113774,
+      "ci_high": 6.861608567881563,
+      "p_value": 0.2928418753198885
+    },
+    "relevant_only_median_trend": {
+      "n": 144,
+      "median_slope_km_per_decade": -20.134557813310103,
+      "ci_low": -46.51228150159294,
+      "ci_high": 6.2431658749727355,
+      "p_value": 0.13684665398272758
+    },
+    "all_recurvers_early_median_km": 786.8849594820557,
+    "all_recurvers_late_median_km": 997.3554393900986,
+    "endpoint_diagnostic": {
+      "endpoint_count": 168,
+      "endpoint_fraction": 0.4028776978417266,
+      "relevant_endpoint_count": 29,
+      "relevant_endpoint_fraction": 0.2013888888888889,
+      "early_endpoint_fraction": 0.3961038961038961,
+      "late_endpoint_fraction": 0.4068441064638783,
+      "non_endpoint_mean_trend": {
+        "n": 249,
+        "slope_per_decade": 16.940059885339885,
+        "ci_low": -20.574992869195363,
+        "ci_high": 54.45511263987513,
+        "p_value": 0.376132253450445
+      },
+      "non_endpoint_median_trend": {
+        "n": 249,
+        "median_slope_km_per_decade": 14.7086521712489,
+        "ci_low": -39.01598197150336,
+        "ci_high": 68.43328631400115,
+        "p_value": 0.5920228121515352
+      },
+      "post_recurvature_duration_trend": {
+        "n": 417,
+        "slope_per_decade": 0.2667381828370209,
+        "ci_low": -2.8339943309246194,
+        "ci_high": 3.367470696598661,
+        "p_value": 0.8661053603218147
+      }
+    },
+    "alternative_projection": {
+      "baseline_projection": "EPSG:3347",
+      "alternative_projection": "Newfoundland-centred azimuthal equidistant (48.5 N, 56 W; WGS84)",
+      "baseline_relevant_events": 144,
+      "alternative_relevant_events": 148,
+      "classification_changes": 4,
+      "distance_correlation": 0.9997778263547167,
+      "median_absolute_difference_km": 17.52414026367012,
+      "p95_absolute_difference_km": 116.2173533043191,
+      "maximum_absolute_difference_km": 241.21135034766712,
+      "full_count_trend": {
+        "n_years": 74,
+        "total_events": 148,
+        "irr_per_decade": 0.9967472176551645,
+        "ci_low": 0.9243305083389247,
+        "ci_high": 1.0748374168550356,
+        "p_value": 0.9325300816891846,
+        "hac_ci_low": 0.9458029513883893,
+        "hac_ci_high": 1.0504355208924845,
+        "hac_p_value": 0.9031199375784713,
+        "pearson_dispersion": 0.9188931758524228,
+        "lag1_residual_autocorrelation": -0.06301089622024479,
+        "ljung_box_p_value": 0.2810049785300365
+      },
+      "satellite_count_trend": {
+        "n_years": 45,
+        "total_events": 88,
+        "irr_per_decade": 1.1112625013190824,
+        "ci_low": 0.9452662176116704,
+        "ci_high": 1.3064090558087216,
+        "p_value": 0.20122358764705106,
+        "hac_ci_low": 0.9791024264453325,
+        "hac_ci_high": 1.2612616550459483,
+        "hac_p_value": 0.10245224967935104,
+        "pearson_dispersion": 1.1346224328568175,
+        "lag1_residual_autocorrelation": -0.09569439983500982,
+        "ljung_box_p_value": 0.34390175253516586
+      },
+      "mean_distance_trend": {
+        "n": 417,
+        "slope_per_decade": 25.017358369330644,
+        "ci_low": -9.522773210336808,
+        "ci_high": 59.5574899489981,
+        "p_value": 0.15571698349028237
+      },
+      "median_distance_trend": {
+        "n": 417,
+        "median_slope_km_per_decade": 36.98019989068485,
+        "ci_low": -10.403209757945689,
+        "ci_high": 84.36360953931539,
+        "p_value": 0.12685917859895915
+      }
+    }
+  },
+  "sensitivity": {
+    "threshold": {
+      "full_period_irr_range": [
+        0.9936081499257865,
+        1.0227601381794742
+      ],
+      "satellite_irr_range": [
+        1.0696124247296577,
+        1.1870355687829028
+      ],
+      "satellite_model_p_below_0_05": 1,
+      "satellite_hac_p_below_0_05": 2
+    },
+    "detector": {
+      "full_period_event_range": [
+        80,
+        146
+      ],
+      "full_period_irr_range": [
+        0.971846129727441,
+        1.0126725283644653
+      ],
+      "satellite_event_range": [
+        44,
+        88
+      ],
+      "satellite_irr_range": [
+        1.038943835059897,
+        1.2374814060746506
+      ],
+      "satellite_model_p_below_0_05": 1,
+      "satellite_hac_p_below_0_05": 6,
+      "satellite_eligible_pathway_p_below_0_05": 0,
+      "satellite_recurver_pathway_p_below_0_05": 0
+    }
+  },
+  "method_comparison": {
+    "velocity_vs_heading": {
+      "first_n": 144,
+      "second_n": 131,
+      "overlap": 128,
+      "only_first": 16,
+      "only_second": 3,
+      "jaccard": 0.8707482993197279
+    },
+    "legacy_vs_corrected": {
+      "first_n": 165,
+      "second_n": 144,
+      "overlap": 130,
+      "only_first": 35,
+      "only_second": 14,
+      "jaccard": 0.7262569832402235
+    }
+  },
+  "legacy_reproduction": {
+    "n_years": 74,
+    "total_events": 165,
+    "irr_per_decade": 0.9943702464804629,
+    "ci_low": 0.9258120877113936,
+    "ci_high": 1.0680052682503427,
+    "p_value": 0.8769035048924448,
+    "hac_ci_low": 0.9369187728433569,
+    "hac_ci_high": 1.0553446208414579,
+    "hac_p_value": 0.8524965357243616,
+    "pearson_dispersion": 1.0786803427865366,
+    "lag1_residual_autocorrelation": 0.010334704419079242,
+    "ljung_box_p_value": 0.6195851253214322
+  }
+}
