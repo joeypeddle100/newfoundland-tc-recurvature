@@ -6,22 +6,27 @@
 \usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{float}
-\usepackage[numbers]{natbib}
+\usepackage[authoryear,round,sort]{natbib}
 \usepackage{url}
 \usepackage{microtype}
 \usepackage{caption}
+\usepackage[hidelinks]{hyperref}
 
 \input{outputs/results_macros.tex}
 
 \title{\textbf{Climatology of North Atlantic Tropical-Cyclone Recurvature Relevant to Newfoundland: Frequency, Location, and Proximity, 1950--2023}}
 \author{Joey Peddle}
 \date{}
+\hypersetup{
+    pdftitle={Climatology of North Atlantic Tropical-Cyclone Recurvature Relevant to Newfoundland: Frequency, Location, and Proximity, 1950-2023},
+    pdfauthor={Joey Peddle}
+}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-North Atlantic tropical cyclones that turn into the mid-latitudes can affect Newfoundland without making landfall, but the historical variability of this pathway has not been quantified using a temporally homogeneous trajectory definition. We analyze IBTrACS v04r00 tracks from 1950--2023, retaining only storms coded tropical at least once and interpolating their tracks to a regular 6-hour grid. Recurvature is defined as a sustained transition from non-eastward motion to eastward and poleward motion using fixed 24-hour windows. Post-turn proximity is calculated from the continuous track polyline to the Newfoundland island polygon; 600~km is the primary screening threshold.
+North Atlantic tropical cyclones that turn into the mid-latitudes can affect Newfoundland without making landfall. We quantify the historical variability of this pathway using a temporally homogeneous trajectory definition. We analyze IBTrACS v04r00 tracks from 1950--2023, retaining only storms coded tropical at least once and interpolating their tracks to a regular 6-hour grid. Recurvature is defined as a sustained transition from non-eastward motion to eastward and poleward motion using fixed 24-hour windows. Post-turn proximity is calculated from the continuous track polyline to the Newfoundland island polygon; 600~km is the primary screening threshold.
 
 The baseline method identifies \BaselineN\ Newfoundland-relevant events. Annual counts show no detectable monotonic trend over 1950--2023 (incidence-rate ratio [IRR] \(=\FullIRR\) per decade, 95\% CI \FullCILow--\FullCIHigh; \(p=\FullP\)). The baseline 1979--2023 estimate is positive but uncertain (IRR \(=\SatelliteIRR\), 95\% CI \SatelliteCILow--\SatelliteCIHigh; \(p=\SatelliteP\)); unlike the full-period result, its statistical resolution varies with reasonable detector and proximity definitions. Pathway probabilities among eligible storms and among detected recurvers remain unresolved across those definitions. Recurvature latitude, longitude, and the joint spatial distribution show no detectable displacement. For all detected recurvers, mean minimum distance increases by \DistanceMeanSlope~km per decade (95\% CI \DistanceMeanLow--\DistanceMeanHigh; \(p=\DistanceMeanP\)), but mean and median estimates weaken when potential end-of-track minima are excluded. September contains \PeakMonthN\ events (\PeakMonthPct\%), and \AugOctPct\% occur during August--October. The full-period no-detectable-trend inference persists across detector, proximity, and projection sensitivities, although the exact event count and the satellite-era raw-count result remain definition-dependent.
 \end{abstract}
@@ -29,9 +34,11 @@ The baseline method identifies \BaselineN\ Newfoundland-relevant events. Annual 
 \section{Introduction}
 
 \subsection{Motivation}
-North Atlantic tropical cyclones commonly move westward or northwestward at low latitudes before turning poleward and eastward as the large-scale steering flow changes. This transition, conventionally termed recurvature, can place a cyclone of tropical origin into the mid-latitude flow and increase the likelihood of extratropical transition \citep{Jones2003}. Newfoundland can experience wind, rainfall, waves, and coastal effects from these systems even when the cyclone centre remains offshore.
+North Atlantic tropical cyclones commonly move westward or northwestward at low latitudes before turning poleward and eastward as the large-scale steering flow changes. North Atlantic track variability is organized partly by genesis region and by the position and strength of large-scale steering features, particularly the subtropical high \citep{Kossin2010,ColbertSoden2012}. Basin activity in the main development and subtropical regions also explains much of the observed interannual variability in the number of recurving North Atlantic cyclones \citep{Sainsbury2022}.
 
-Recurvature is not a uniquely defined event. A detector based only on longitude increments can confuse eastward acceleration with an actual turn, while a detector applied to irregular track intervals assigns different physical meanings to identical numerical thresholds. Regional relevance adds a second definitional problem: landfall-only classifications exclude offshore systems, whereas broad distance thresholds can include pathways with little direct impact potential. These choices must therefore be expressed in physical units, tested explicitly, and kept separate from claims about observed damage or risk.
+This track turn, conventionally termed recurvature, is distinct from extratropical transition, which is a structural transformation of the cyclone, although the two often occur during overlapping portions of a cyclone's movement into the baroclinic mid-latitudes \citep{HartEvans2001,EvansHart2003,Jones2003}. Transitioning cyclones can retain or redevelop substantial wind, rainfall, and wave hazards and can modify the downstream mid-latitude flow \citep{Evans2017,Keller2019}. Newfoundland can therefore experience effects from a recurving cyclone of tropical origin even when the cyclone centre remains offshore.
+
+Recurvature is not a uniquely defined event. Published work has used distinct operational classifications; for example, \citet{Sainsbury2022} classified North Atlantic cyclones as recurving when they entered a broad mid-latitude domain, without requiring a change in zonal direction. A detector based only on longitude increments can instead confuse eastward acceleration with an actual turn, while a detector applied to irregular track intervals assigns different physical meanings to identical numerical thresholds. Regional relevance adds a second definitional problem: landfall-only classifications exclude offshore systems, whereas broad distance thresholds can include pathways with little direct impact potential. These choices must therefore be expressed in physical units, tested explicitly, and kept separate from claims about observed damage or risk.
 
 \subsection{Frequency, pathway probability, and proximity}
 Three related quantities describe different aspects of the climatology. Annual event count measures how often a Newfoundland-relevant pathway occurs. The fraction of eligible storms that become Newfoundland-relevant measures pathway probability after accounting for annual basin activity. Finally, minimum post-recurvature distance describes whether the broader population of recurving storms has shifted relative to Newfoundland. Analyzing only storms selected for being within a fixed distance would truncate the proximity distribution, so proximity trends are evaluated primarily for all detected recurvers.
@@ -77,7 +84,7 @@ An alternative detector converts the same local zonal and meridional displacemen
 Parameter sensitivity was evaluated for latitude gates of \(25^\circ\) and \(30^\circ\)N, window lengths of 18, 24, and 30~h, and post-turn eastward thresholds of 2.5, 5.0, 7.5, and 10.0~km~h\(^{-1}\). The minimum zonal acceleration was the larger of 5~km~h\(^{-1}\) and the tested post-turn threshold.
 
 \subsection{Newfoundland proximity}
-Newfoundland was represented by the island components of the 1:10-million Natural Earth provincial polygon. Geometry was projected to Statistics Canada Lambert conformal conic coordinates (EPSG:3347). For every detected recurver, the minimum Euclidean distance in the projected coordinate system was calculated between the continuous post-turn track polyline and the island polygon. A crossing of the polygon therefore has distance zero, while a crossing between 6-hour positions is retained through the line segment. Projection sensitivity was evaluated with a WGS84 azimuthal-equidistant coordinate system centred on Newfoundland (\(48.5^\circ\)N, \(56^\circ\)W).
+Newfoundland was represented by the island components of the 1:10-million Natural Earth provincial polygon \citep{KelsoPatterson2009}. Geometry was projected to Statistics Canada Lambert conformal conic coordinates (EPSG:3347). For every detected recurver, the minimum Euclidean distance in the projected coordinate system was calculated between the continuous post-turn track polyline and the island polygon. A crossing of the polygon therefore has distance zero, while a crossing between 6-hour positions is retained through the line segment. Projection sensitivity was evaluated with a WGS84 azimuthal-equidistant coordinate system centred on Newfoundland (\(48.5^\circ\)N, \(56^\circ\)W).
 
 The primary 600-km threshold is a broad regional screening radius rather than a physical hazard boundary (Figure~\ref{fig:geometry}). Thresholds of 300, 500, 600, 800, and 1000~km are evaluated separately. This classification represents track proximity, not demonstrated impact; cyclone intensity, size, storm phase, and observed hazards are not included. A minimum located within 1~km along track of the final recorded post-recurvature position was flagged as a potential end-of-track minimum.
 
@@ -89,11 +96,11 @@ The primary 600-km threshold is a broad regional screening radius rather than a 
 \end{figure}
 
 \subsection{Statistical analysis}
-The primary estimand is the log-linear trend in annual baseline event count over 1950--2023. Annual counts were modelled using Poisson regression with a log link and centred year predictor. Effect magnitude is reported as an incidence-rate ratio (IRR) per decade with a 95\% confidence interval. Pearson \(\chi^2/\mathrm{df}\) was used to assess dispersion. As a dependence check, confidence intervals were also calculated with heteroskedasticity-and-autocorrelation-consistent covariance using two lags; Pearson-residual lag-1 correlation and a Ljung--Box test were inspected.
+The primary estimand is the log-linear trend in annual baseline event count over 1950--2023. Annual counts were modelled using Poisson regression with a log link and centred year predictor. Effect magnitude is reported as an incidence-rate ratio (IRR) per decade with a 95\% confidence interval. Pearson \(\chi^2/\mathrm{df}\) was used to assess dispersion. As a dependence check, confidence intervals were also calculated with heteroskedasticity-and-autocorrelation-consistent covariance using two lags \citep{NeweyWest1987}; Pearson-residual lag-1 correlation and a Ljung--Box test \citep{LjungBox1978} were inspected.
 
-Two binomial models distinguish pathway behaviour from raw occurrence. The first models Newfoundland-relevant events among eligible storms. The second models Newfoundland-relevant events among detected recurvers. Both report an odds ratio (OR) per decade. Analyses were performed for 1950--2023 and for 1979--2023, with 1979 used as a fixed, coarse modern satellite-era boundary rather than an estimated changepoint. Detector and proximity sensitivities were evaluated for both periods.
+Two binomial models distinguish pathway behaviour from raw occurrence. The first models Newfoundland-relevant events among eligible storms. The second models Newfoundland-relevant events among detected recurvers. Both report an odds ratio (OR) per decade. Analyses were performed for 1950--2023 and for 1979--2023, with 1979 used as a fixed, coarse modern satellite-era boundary rather than an estimated changepoint. This boundary is a sensitivity period, not a claim that Atlantic best-track observations became homogeneous in a single year \citep{VecchiKnutson2008,LandseaFranklin2013}. Detector and proximity sensitivities were evaluated for both periods.
 
-Linear trends in recurvature latitude and longitude were estimated using ordinary least squares with HC3 covariance. For the joint early- versus late-era comparison, longitude and latitude were transformed to three-dimensional Earth-centred Cartesian coordinates in kilometres, and a two-sample energy-distance test was performed with 4999 permutations. Minimum-distance trends were estimated for all detected recurvers using both HC3 mean regression and median quantile regression. Results conditional on the 600-km selection were retained as secondary diagnostics. As a censoring diagnostic, both distance trends were repeated after excluding tracks whose minimum occurred at the final recorded point.
+Linear trends in recurvature latitude and longitude were estimated using ordinary least squares with HC3 covariance \citep{MacKinnonWhite1985}. For the joint early- versus late-era comparison, longitude and latitude were transformed to three-dimensional Earth-centred Cartesian coordinates in kilometres, and a two-sample energy-distance test was performed with 4999 permutations \citep{SzekelyRizzo2013}. Minimum-distance trends were estimated for all detected recurvers using both HC3 mean regression and median quantile regression \citep{KoenkerBassett1978}. Results conditional on the 600-km selection were retained as secondary diagnostics. As a censoring diagnostic, both distance trends were repeated after excluding tracks whose minimum occurred at the final recorded point.
 
 \subsection{Seasonal timing and cyclone nature}
 Seasonal timing was defined by the month of the diagnosed recurvature point, not genesis or closest approach. Cyclone nature at recurvature was taken from the nearest IBTrACS source position.
@@ -101,7 +108,7 @@ Seasonal timing was defined by the month of the diagnosed recurvature point, not
 \subsection{500-hPa physical-context composite}
 For baseline events during 1979--2023, the 6-hourly, \(2.5^\circ\) NCEP/NCAR Reanalysis~1 500-hPa geopotential-height field was sampled at the diagnosed recurvature time \citep{Kalnay1996}. Each field was expressed as an anomaly from the corresponding 1991--2020 calendar-month mean. The \SatelliteN\ available events were composited on the native fixed North Atlantic grid and on a storm-relative \(2.5^\circ\) grid extending \(30^\circ\) west--east and \(20^\circ\) south--north from the recurvature point; storm-relative values were obtained by bilinear interpolation. Mean absolute heights are shown as contours.
 
-At each grid point, anomaly consistency was evaluated with a two-sided one-sample \(t\)-test against zero, followed by Benjamini--Hochberg false-discovery-rate control at \(q=0.05\). The composite is illustrative and secondary: it does not remove the cyclone circulation, include a matched non-Newfoundland control, establish regional specificity or causality, or substitute for a deep-layer steering-flow analysis.
+At each grid point, anomaly consistency was evaluated with a two-sided one-sample \(t\)-test against zero, followed by Benjamini--Hochberg false-discovery-rate control at \(q=0.05\) \citep{BenjaminiHochberg1995}. The composite is illustrative and secondary: it does not remove the cyclone circulation, include a matched non-Newfoundland control, establish regional specificity or causality, or substitute for a deep-layer steering-flow analysis.
 
 \section{Results}
 
@@ -201,7 +208,7 @@ The alternative Newfoundland-centred azimuthal-equidistant projection classifies
 \end{figure}
 
 \subsection{Illustrative 500-hPa physical context}
-The geographic composite contains a positive height anomaly centred near Newfoundland and Atlantic Canada, accompanied by negative anomalies farther east (Figure~\ref{fig:composite}a). Because recurvature points span a broad region, the storm-relative panel provides the clearer dynamical geometry: a positive anomaly is centred approximately \(10^\circ\)--\(20^\circ\) northeast of the recurvature point, while lower anomalous heights occur near and slightly west of the cyclone (Figure~\ref{fig:composite}b). The absolute-height contours and anomaly pattern are consistent with a common downstream ridge signal during the diagnosed turn.
+The geographic composite contains a positive height anomaly centred near Newfoundland and Atlantic Canada, accompanied by negative anomalies farther east (Figure~\ref{fig:composite}a). Because recurvature points span a broad region, the storm-relative panel provides the clearer dynamical geometry: a positive anomaly is centred approximately \(10^\circ\)--\(20^\circ\) northeast of the recurvature point, while lower anomalous heights occur near and slightly west of the cyclone (Figure~\ref{fig:composite}b). The absolute-height contours and anomaly pattern are consistent with the downstream-ridge geometry described when tropical cyclones interact with the mid-latitude flow \citep{Keller2019}.
 
 The negative anomaly near the storm may include the cyclone circulation itself. Without a matched non-Newfoundland recurver composite, neither panel establishes that the pattern is regionally specific or proves a single steering mechanism. The composite should therefore be interpreted only as environmental context rather than attribution.
 
@@ -228,15 +235,15 @@ Neither satellite-era pathway-probability model shows a comparable increase, and
 The all-recurver proximity estimates point toward greater observed distance in later years, but neither interval excludes no change. More importantly, approximately two-fifths of all recurvers attain their minimum distance at the final recorded track position. Although the proportion is nearly identical across eras and post-recurvature track duration has no detectable trend, excluding these potentially right-censored cases substantially attenuates the median estimate. The proximity result should therefore be treated as exploratory rather than near-significant evidence of a physical displacement. The opposite-signed estimate within the 600-km subset is a selection effect rather than evidence of contradictory physical changes.
 
 \subsection{Classification uncertainty}
-Temporal standardization gives each detector window a fixed physical duration, but it does not make recurvature unique. Event counts vary substantially with latitude gate, window length, eastward-speed threshold, and regional distance threshold. The alternative heading detector agrees on most events, but neither detector has been tested against an independent expert-labelled recurvature archive. The defensible claim is therefore robustness of the full-period near-unity trend estimate across operational definitions, not validated detector skill or certainty that precisely \BaselineN\ storms form the only valid historical list.
+Temporal standardization gives each detector window a fixed physical duration, but it does not make recurvature unique; other North Atlantic work has deliberately used a domain-entry definition without requiring a zonal direction change \citep{Sainsbury2022}. Event counts vary substantially with latitude gate, window length, eastward-speed threshold, and regional distance threshold. The alternative heading detector agrees on most events, but neither detector has been tested against an independent expert-labelled recurvature archive. The defensible claim is therefore robustness of the full-period near-unity trend estimate across operational definitions, not validated detector skill or certainty that precisely \BaselineN\ storms form the only valid historical list.
 
 \subsection{Regional interpretation and limitations}
 The September maximum and concentration during August--October are directly useful for seasonal monitoring. The 600-km classification should not, however, be presented as an impact record. A weak cyclone at 400~km and a large transitioning cyclone at the same distance have different hazard footprints. Intensity, size, frontal evolution, waves, rainfall, and observed Newfoundland impacts are outside the current analysis.
 
-Earlier best-track data are less homogeneous than the satellite-era record \citep{LandseaFranklin2013}. Linear interpolation cannot recover unobserved track detail, Natural Earth geometry introduces finite coastline resolution, and projected distances are not identical across coordinate systems. The projection sensitivity indicates that these geometric choices affect a few boundary classifications but not the trend interpretation. The 500-hPa composite includes the cyclone circulation, only one pressure level, and no matched control population; it cannot establish Newfoundland-specific dynamics. Finally, linear models summarize monotonic change but do not fully describe decadal clustering or nonlinear variability.
+Earlier best-track data are less homogeneous than the satellite-era record, with historical observing changes affecting the completeness and uncertainty of Atlantic tropical-cyclone records \citep{VecchiKnutson2008,LandseaFranklin2013}. Linear interpolation cannot recover unobserved track detail, Natural Earth geometry introduces finite coastline resolution, and projected distances are not identical across coordinate systems. The projection sensitivity indicates that these geometric choices affect a few boundary classifications but not the trend interpretation. The 500-hPa composite includes the cyclone circulation, only one pressure level, and no matched control population; it cannot establish Newfoundland-specific dynamics. Finally, linear models summarize monotonic change but do not fully describe decadal clustering or nonlinear variability.
 
 \subsection{Future work}
-Future work should connect track proximity to intensity, storm size, extratropical-transition phase, and verified Newfoundland impacts. Deep-layer steering-flow and potential-vorticity composites should be compared with matched non-Newfoundland recurvers. Track uncertainty could be propagated through the detector using perturbed-track ensembles. A separate coastline-intersection analysis would also distinguish landfalls from offshore hazard pathways without conflating the two.
+Future work should connect track proximity to intensity, storm size, extratropical-transition phase, and verified Newfoundland impacts. Deep-layer steering-flow and potential-vorticity composites, which are central to diagnosing tropical-cyclone interaction with the mid-latitude circulation \citep{Jones2003,Keller2019}, should be compared with matched non-Newfoundland recurvers. Track uncertainty could be propagated through the detector using perturbed-track ensembles. A separate coastline-intersection analysis would also distinguish landfalls from offshore hazard pathways without conflating the two.
 
 \section{Conclusions}
 After placing IBTrACS tracks on a regular 6-hour grid and requiring a sustained west-to-east, poleward transition, \BaselineN\ North Atlantic cyclones of tropical origin are classified within 600~km of Newfoundland after recurvature during 1950--2023.
@@ -262,49 +269,130 @@ Figure~\ref{fig:discordant} provides a transparent visual audit of all detector-
 \section*{Data and code availability}
 The executable notebook, source code, event lists, sensitivity tables, and generated composite fields accompany this manuscript. The public repository is \url{https://github.com/joeypeddle100/newfoundland-tc-recurvature}. A versioned release corresponding to this analysis should be archived before journal submission.
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 
-\bibitem[Knapp et~al.(2010)]{Knapp2010}
-Knapp, K.~R., Kruk, M.~C., Levinson, D.~H., Diamond, H.~J., and Neumann, C.~J. (2010).
-The International Best Track Archive for Climate Stewardship (IBTrACS): Unifying tropical cyclone best track data.
-\textit{Bulletin of the American Meteorological Society}, \textit{91}, 363--376.
-doi:10.1175/2009BAMS2755.1
+\bibitem[Benjamini and Hochberg(1995)]{BenjaminiHochberg1995}
+Benjamini, Y., and Hochberg, Y. (1995).
+Controlling the false discovery rate: A practical and powerful approach to multiple testing.
+\textit{Journal of the Royal Statistical Society: Series B (Methodological)}, \textit{57}(1), 289--300.
+\url{https://doi.org/10.1111/j.2517-6161.1995.tb02031.x}
 
-\bibitem[Gahtan et~al.(2024)]{Gahtan2024}
-Gahtan, J., Knapp, K.~R., Schreck, C.~J., Diamond, D.~H., Kossin, J.~P., and Kruk, M.~C. (2024).
-International Best Track Archive for Climate Stewardship Project, Version 4.
-NOAA National Centers for Environmental Information.
-doi:10.25921/82ty-9e16
+\bibitem[Colbert and Soden(2012)]{ColbertSoden2012}
+Colbert, A.~J., and Soden, B.~J. (2012).
+Climatological variations in North Atlantic tropical cyclone tracks.
+\textit{Journal of Climate}, \textit{25}(2), 657--673.
+\url{https://doi.org/10.1175/JCLI-D-11-00034.1}
 
-\bibitem[Kalnay et~al.(1996)]{Kalnay1996}
-Kalnay, E., Kanamitsu, M., Kistler, R., Collins, W., Deaven, D., Gandin, L., Iredell, M., Saha, S., White, G., Woollen, J., Zhu, Y., and others (1996).
-The NCEP/NCAR 40-Year Reanalysis Project.
-\textit{Bulletin of the American Meteorological Society}, \textit{77}, 437--471.
-doi:10.1175/1520-0477(1996)077<0437:TNYRP>2.0.CO;2
-
-\bibitem[Landsea and Franklin(2013)]{LandseaFranklin2013}
-Landsea, C.~W., and Franklin, J.~L. (2013).
-Atlantic hurricane database uncertainty and presentation of a new database format.
-\textit{Monthly Weather Review}, \textit{141}, 3576--3592.
-doi:10.1175/MWR-D-12-00254.1
+\bibitem[Evans et~al.(2017)]{Evans2017}
+Evans, C., Wood, K.~M., Aberson, S.~D., Archambault, H.~M., Milrad, S.~M., Bosart, L.~F., Corbosiero, K.~L., Davis, C.~A., and coauthors (2017).
+The extratropical transition of tropical cyclones. Part I: Cyclone evolution and direct impacts.
+\textit{Monthly Weather Review}, \textit{145}(11), 4317--4344.
+\url{https://doi.org/10.1175/MWR-D-17-0027.1}
 
 \bibitem[Evans and Hart(2003)]{EvansHart2003}
 Evans, J.~L., and Hart, R.~E. (2003).
 Objective indicators of the life cycle evolution of extratropical transition for Atlantic tropical cyclones.
-\textit{Monthly Weather Review}, \textit{131}, 909--925.
-doi:10.1175/1520-0493(2003)131<0909:OIOTLC>2.0.CO;2
+\textit{Monthly Weather Review}, \textit{131}(5), 909--925.
+\url{https://doi.org/10.1175/1520-0493(2003)131<0909:OIOTLC>2.0.CO;2}
 
-\bibitem[Evans et~al.(2017)]{Evans2017}
-Evans, C., Wood, K.~M., Aberson, S.~D., Archambault, H.~M., Milrad, S.~M., Bosart, L.~F., Corbosiero, K.~L., Davis, C.~A., and others (2017).
-The extratropical transition of tropical cyclones. Part I: Cyclone evolution and direct impacts.
-\textit{Monthly Weather Review}, \textit{145}(11), 4317--4344.
-doi:10.1175/MWR-D-17-0027.1
+\bibitem[Gahtan et~al.(2024)]{Gahtan2024}
+Gahtan, J., Knapp, K.~R., Schreck, C.~J., III, Diamond, H.~J., Kossin, J.~P., and Kruk, M.~C. (2024).
+International Best Track Archive for Climate Stewardship (IBTrACS) Project, Version 4.
+North Atlantic basin subset, release v04r00, 1950--2023.
+NOAA National Centers for Environmental Information.
+Accessed 25 July 2026.
+\url{https://doi.org/10.25921/82ty-9e16}
+
+\bibitem[Hart and Evans(2001)]{HartEvans2001}
+Hart, R.~E., and Evans, J.~L. (2001).
+A climatology of the extratropical transition of Atlantic tropical cyclones.
+\textit{Journal of Climate}, \textit{14}(4), 546--564.
+\url{https://doi.org/10.1175/1520-0442(2001)014<0546:ACOTET>2.0.CO;2}
 
 \bibitem[Jones et~al.(2003)]{Jones2003}
-Jones, S.~C., Harr, P.~A., Abraham, J., Bosart, L.~F., Bowyer, P.~J., Evans, J.~L., Hanley, D.~E., and others (2003).
+Jones, S.~C., Harr, P.~A., Abraham, J., Bosart, L.~F., Bowyer, P.~J., Evans, J.~L., Hanley, D.~E., and coauthors (2003).
 The extratropical transition of tropical cyclones: Forecast challenges, current understanding, and future directions.
 \textit{Weather and Forecasting}, \textit{18}(6), 1052--1092.
-doi:10.1175/1520-0434(2003)018<1052:TETOTC>2.0.CO;2
+\url{https://doi.org/10.1175/1520-0434(2003)018<1052:TETOTC>2.0.CO;2}
+
+\bibitem[Kalnay et~al.(1996)]{Kalnay1996}
+Kalnay, E., Kanamitsu, M., Kistler, R., Collins, W., Deaven, D., Gandin, L., Iredell, M., Saha, S., White, G., Woollen, J., Zhu, Y., and coauthors (1996).
+The NCEP/NCAR 40-Year Reanalysis Project.
+\textit{Bulletin of the American Meteorological Society}, \textit{77}(3), 437--471.
+\url{https://doi.org/10.1175/1520-0477(1996)077<0437:TNYRP>2.0.CO;2}
+
+\bibitem[Keller et~al.(2019)]{Keller2019}
+Keller, J.~H., Grams, C.~M., Riemer, M., Archambault, H.~M., Bosart, L.~F., Doyle, J.~D., Evans, J.~L., Galarneau, T.~J., and coauthors (2019).
+The extratropical transition of tropical cyclones. Part II: Interaction with the midlatitude flow, downstream impacts, and implications for predictability.
+\textit{Monthly Weather Review}, \textit{147}(4), 1077--1106.
+\url{https://doi.org/10.1175/MWR-D-17-0329.1}
+
+\bibitem[Kelso and Patterson(2009)]{KelsoPatterson2009}
+Kelso, N.~V., and Patterson, T. (2009).
+Natural Earth Vector.
+\textit{Cartographic Perspectives}, \textit{64}, 45--50.
+\url{https://doi.org/10.14714/CP64.148}
+
+\bibitem[Knapp et~al.(2010)]{Knapp2010}
+Knapp, K.~R., Kruk, M.~C., Levinson, D.~H., Diamond, H.~J., and Neumann, C.~J. (2010).
+The International Best Track Archive for Climate Stewardship (IBTrACS): Unifying tropical cyclone best track data.
+\textit{Bulletin of the American Meteorological Society}, \textit{91}(3), 363--376.
+\url{https://doi.org/10.1175/2009BAMS2755.1}
+
+\bibitem[Koenker and Bassett(1978)]{KoenkerBassett1978}
+Koenker, R., and Bassett, G., Jr. (1978).
+Regression quantiles.
+\textit{Econometrica}, \textit{46}(1), 33--50.
+\url{https://doi.org/10.2307/1913643}
+
+\bibitem[Kossin et~al.(2010)]{Kossin2010}
+Kossin, J.~P., Camargo, S.~J., and Sitkowski, M. (2010).
+Climate modulation of North Atlantic hurricane tracks.
+\textit{Journal of Climate}, \textit{23}(11), 3057--3076.
+\url{https://doi.org/10.1175/2010JCLI3497.1}
+
+
+\bibitem[Landsea and Franklin(2013)]{LandseaFranklin2013}
+Landsea, C.~W., and Franklin, J.~L. (2013).
+Atlantic hurricane database uncertainty and presentation of a new database format.
+\textit{Monthly Weather Review}, \textit{141}(10), 3576--3592.
+\url{https://doi.org/10.1175/MWR-D-12-00254.1}
+
+\bibitem[Ljung and Box(1978)]{LjungBox1978}
+Ljung, G.~M., and Box, G.~E.~P. (1978).
+On a measure of lack of fit in time series models.
+\textit{Biometrika}, \textit{65}(2), 297--303.
+\url{https://doi.org/10.1093/biomet/65.2.297}
+
+\bibitem[MacKinnon and White(1985)]{MacKinnonWhite1985}
+MacKinnon, J.~G., and White, H. (1985).
+Some heteroskedasticity-consistent covariance matrix estimators with improved finite sample properties.
+\textit{Journal of Econometrics}, \textit{29}(3), 305--325.
+\url{https://doi.org/10.1016/0304-4076(85)90158-7}
+
+\bibitem[Newey and West(1987)]{NeweyWest1987}
+Newey, W.~K., and West, K.~D. (1987).
+A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix.
+\textit{Econometrica}, \textit{55}(3), 703--708.
+\url{https://doi.org/10.2307/1913610}
+
+\bibitem[Sainsbury et~al.(2022)]{Sainsbury2022}
+Sainsbury, E.~M., Schiemann, R.~K.~H., Hodges, K.~I., Baker, A.~J., Shaffrey, L.~C., and Bhatia, K.~T. (2022).
+What governs the interannual variability of recurving North Atlantic tropical cyclones?
+\textit{Journal of Climate}, \textit{35}(12), 3627--3641.
+\url{https://doi.org/10.1175/JCLI-D-21-0712.1}
+
+\bibitem[Sz\'ekely and Rizzo(2013)]{SzekelyRizzo2013}
+Sz\'ekely, G.~J., and Rizzo, M.~L. (2013).
+Energy statistics: A class of statistics based on distances.
+\textit{Journal of Statistical Planning and Inference}, \textit{143}(8), 1249--1272.
+\url{https://doi.org/10.1016/j.jspi.2013.03.018}
+
+\bibitem[Vecchi and Knutson(2008)]{VecchiKnutson2008}
+Vecchi, G.~A., and Knutson, T.~R. (2008).
+On estimates of historical North Atlantic tropical cyclone activity.
+\textit{Journal of Climate}, \textit{21}(14), 3580--3600.
+\url{https://doi.org/10.1175/2008JCLI2178.1}
 
 \end{thebibliography}
 
