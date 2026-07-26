@@ -129,8 +129,7 @@ results.
 
 ## Citation
 
-Citation metadata are provided in [`CITATION.cff`](CITATION.cff). A versioned
-archival DOI can be added after the submission release is deposited.
+Citation metadata are provided in [`CITATION.cff`](CITATION.cff).
 
 ## License
 
